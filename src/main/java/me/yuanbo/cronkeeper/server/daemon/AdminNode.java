@@ -4,7 +4,7 @@ import me.yuanbo.cronkeeper.exceptions.CronkeeperException;
 import me.yuanbo.cronkeeper.server.Context;
 import me.yuanbo.cronkeeper.server.Server;
 
-public class Collector extends Server {
+public class AdminNode extends Server {
     @Override
     public void init(Context context) throws CronkeeperException {
 
