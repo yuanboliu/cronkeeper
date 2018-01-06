@@ -1,4 +1,4 @@
-package me.yuanbo.cronkeeper.exceptions;
+package org.cronkeeper.exception;
 
 public class CronkeeperException extends Exception {
 }
