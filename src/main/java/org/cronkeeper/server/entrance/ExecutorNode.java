@@ -2,13 +2,35 @@ package org.cronkeeper.server.entrance;
 
 import org.cronkeeper.exception.CronkeeperException;
 import org.cronkeeper.server.CronkeeperConf;
+import org.cronkeeper.server.RpcServer;
 import org.cronkeeper.server.Server;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
 
 public class ExecutorNode extends Server {
 
-    private ExecutorNode() {}
+    private class ExecutorRpc extends RpcServer implements Runnable {
 
-    public static ExecutorNode createNode() {
+        /**
+         * init rpc server with fixed port
+         *
+         * @param address - address provided by conf files
+         */
+        public ExecutorRpc(InetSocketAddress address) throws IOException {
+            super(address);
+        }
+
+        @Override
+        public void run() {
+
+        }
+    }
+
+    private ExecutorNode() {
+    }
+
+    public static ExecutorNode createNode() throws Exception {
         return new ExecutorNode();
     }
 
