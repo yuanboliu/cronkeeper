@@ -8,7 +8,7 @@ public class ExecutorNode extends Server {
 
     private ExecutorNode() {}
 
-    public static ExecutorNode createNode(String[] args) {
+    public static ExecutorNode createNode() {
         return new ExecutorNode();
     }
 
@@ -35,13 +35,11 @@ public class ExecutorNode extends Server {
 
     public static void main(String[] args) throws Exception {
 
-        // pre-check args
-
         // create node for executor
-        ExecutorNode node = ExecutorNode.createNode(args);
+        ExecutorNode node = ExecutorNode.createNode();
 
         // init node
-        node.init(new CronkeeperConf(args));
+        node.init(new CronkeeperConf());
 
         // run node
         node.run();
