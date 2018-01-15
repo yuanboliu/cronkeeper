@@ -1,6 +1,5 @@
 package org.cronkeeper.server.entrance;
 
-import org.cronkeeper.exception.CronkeeperException;
 import org.cronkeeper.server.CronkeeperConf;
 import org.cronkeeper.server.Server;
 
@@ -15,22 +14,22 @@ public class AdminNode extends Server {
     }
 
     @Override
-    public void init(CronkeeperConf conf) throws CronkeeperException {
+    public void init(CronkeeperConf conf) throws Exception {
 
     }
 
     @Override
-    public void run() throws CronkeeperException {
+    public void run() throws Exception {
 
     }
 
     @Override
-    public void stop() throws CronkeeperException {
+    public void stop() throws Exception {
 
     }
 
     @Override
-    public void destroy() throws CronkeeperException {
+    public void destroy() throws Exception {
 
     }
 

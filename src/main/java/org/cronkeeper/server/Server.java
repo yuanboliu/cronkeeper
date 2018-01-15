@@ -9,23 +9,23 @@ public abstract class Server {
      * @param conf 配置信息
      * @throws CronkeeperException
      */
-    public abstract void init(CronkeeperConf conf) throws CronkeeperException;
+    public abstract void init(CronkeeperConf conf) throws Exception;
 
     /**
      * init 之后执行run，进程进入running状态
      * @throws CronkeeperException
      */
-    public abstract void run() throws CronkeeperException;
+    public abstract void run() throws Exception;
 
     /**
      * 停止进程，此函数一般通过rpc调用，让进城停止运行
      * @throws CronkeeperException
      */
-    public abstract void stop() throws CronkeeperException;
+    public abstract void stop() throws Exception;
 
     /**
      * 程序退出running状态之后执行，主要用于释放一些资源
      * @throws CronkeeperException
      */
-    public abstract void destroy() throws CronkeeperException;
+    public abstract void destroy() throws Exception;
 }

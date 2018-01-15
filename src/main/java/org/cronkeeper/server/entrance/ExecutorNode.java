@@ -1,6 +1,6 @@
 package org.cronkeeper.server.entrance;
 
-import org.cronkeeper.exception.CronkeeperException;
+import org.cronkeeper.common.Utils;
 import org.cronkeeper.server.CronkeeperConf;
 import org.cronkeeper.server.RpcServer;
 import org.cronkeeper.server.Server;
@@ -8,7 +8,12 @@ import org.cronkeeper.server.Server;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
+import static org.cronkeeper.common.CKConstants.EXECUTOR_IPC_ADDRESS;
+import static org.cronkeeper.common.CKConstants.EXECUTOR_IPC_ADDRESS_DEFAULT;
+
 public class ExecutorNode extends Server {
+
+    private RpcServer rpc;
 
     private class ExecutorRpc extends RpcServer implements Runnable {
 
@@ -36,22 +41,24 @@ public class ExecutorNode extends Server {
 
 
     @Override
-    public void init(CronkeeperConf conf) throws CronkeeperException {
+    public void init(CronkeeperConf conf) throws Exception {
+        String address = conf.get(EXECUTOR_IPC_ADDRESS, EXECUTOR_IPC_ADDRESS_DEFAULT);
+        rpc = new ExecutorRpc(Utils.createAddrByStr(address));
 
     }
 
     @Override
-    public void run() throws CronkeeperException {
+    public void run() throws Exception {
+        
+    }
+
+    @Override
+    public void stop() throws Exception {
 
     }
 
     @Override
-    public void stop() throws CronkeeperException {
-
-    }
-
-    @Override
-    public void destroy() throws CronkeeperException {
+    public void destroy() throws Exception {
 
     }
 
